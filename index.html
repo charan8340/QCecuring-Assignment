@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task Manager Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <div class="menu">
+      <button class="tab active" data-view="tasksView">Tasks</button>
+      <button class="tab" data-view="logsView">Audit Logs</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- Tasks Section -->
+    <div id="tasksView" class="view">
+      <div class="header">
+        <h2>Tasks</h2>
+        <button id="btnAddTask">+ New Task</button>
+      </div>
+
+      <!-- === Search & Filter Controls === -->
+      <div class="search-filter">
+        <input type="text" id="searchInput" placeholder="🔍 Search by title..." />
+        <select id="filterDropdown">
+          <option value="">All</option>
+          <option value="urgent">Urgent</option>
+          <option value="important">Important</option>
+          <option value="meeting">Meeting</option>
+        </select>
+        <button id="btnSearch">Search</button>
+      </div>
+
+      <table id="tasksTable">
+        <thead>
+          <tr><th>#</th><th>Title</th><th>Description</th><th>Created At</th><th>Actions</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Logs Section -->
+    <div id="logsView" class="view" style="display:none">
+      <div class="header"><h2>Audit Logs</h2></div>
+      <table id="logsTable">
+        <thead>
+          <tr><th>#</th><th>Timestamp</th><th>Action</th><th>Task ID</th><th>Updated Content</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="pager">
+        <button id="prevLog">Prev</button>
+        <span id="logPageInfo">Page 1</span>
+        <button id="nextLog">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Add/Edit Task -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <h3 id="modalTitle">Add Task</h3>
+      <input id="taskTitle" placeholder="Title"/>
+      <textarea id="taskDesc" placeholder="Description"></textarea>
+      <div class="modal-actions">
+        <button id="btnCancel">Cancel</button>
+        <button id="btnSave">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
